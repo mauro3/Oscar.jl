@@ -2,6 +2,8 @@ using Oscar
 using Test
 using Documenter
 
+# extra Data Structures
+include("DataStructures/weakkeyid_dict-test.jl")
 
 import Oscar.Nemo.AbstractAlgebra
 include(joinpath(pathof(AbstractAlgebra), "..", "..", "test", "Rings-conformance-tests.jl"))

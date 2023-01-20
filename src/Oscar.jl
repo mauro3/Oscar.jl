@@ -22,6 +22,7 @@ module Oscar
 using Preferences
 
 include("imports.jl")
+include("DataStructures/weakkeyid_dict.jl")
 
 # to allow access to the cornerstones! Otherwise, not even import or using from the
 # user level will work as none of them will have been "added" by the user.
@@ -273,7 +274,7 @@ will be significantly faster.
 """
 function build_doc(; doctest=false, strict=false)
   versioncheck = (VERSION.major == 1) && (VERSION.minor == 6)
-  versionwarn = 
+  versionwarn =
 "The Julia reference version for the doctests is 1.6, but you are using
 $(VERSION). Running the doctests will produce errors that you do not expect."
   if doctest != false && !versioncheck
