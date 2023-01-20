@@ -52,7 +52,7 @@
 end
 
 @testset "Orthogonal groups of torsion quadratic modules" begin
-GC.gc()
+
   L = Zlattice(gram=3*ZZ[2 1; 1 2])
   D = discriminant_group(L)
   G = orthogonal_group(D)
@@ -62,18 +62,18 @@ GC.gc()
   @test G(matrix(f)) == f
   @test hom(f)(d) == f(d)
   @test G(hom(f)) == f
-GC.gc()
+
 
   L = Zlattice(gram=3*ZZ[2 1 0; 1 2 0; 0 0 1])
   @test order(orthogonal_group(discriminant_group(L))) == 72
-GC.gc()
+
   L = Zlattice(gram=ZZ[0 1; 1 2])
   # the trivial group
   D = discriminant_group(L)
   G = orthogonal_group(D)
   g = one(G)
   @test @inferred g ==G(matrix(g))
-GC.gc()
+
   L = root_lattice(:A, 2)
   q = discriminant_group(L)
   T = orthogonal_sum(q, q)[1]
